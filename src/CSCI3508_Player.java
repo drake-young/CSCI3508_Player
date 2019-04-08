@@ -1,31 +1,43 @@
+// TODO document code
+// TODO add javadoc to each class method
+// TODO test this program against a given driver
+
 import java.util.Scanner;
 
 public class CSCI3508_Player
 {
     public static void main(String[] args)
     {
+        // === ENABLE SCANNER === //
         Scanner scanner = new Scanner(System.in);
 
-        // Gather the Command Line Arguments
-        // Assume the form:
-        //      -player <p> -width <w> -height <h>
-        // TODO:
-        //      modify to accept arguments in any order
+        // === GATHER CL ARGUMENTS === //
         Arguments arguments = new Arguments(args);
-
         String gridJSON = scanner.nextLine();
         arguments.setGridFromJSON(gridJSON);
 
-        System.err.println("Player: " + arguments.getPlayer());
-        System.err.println("Width: " + arguments.getWidth());
-        System.err.println("Height: " + arguments.getHeight());
-        System.err.println("Grid: ");
-        arguments.displayGrid(true);
+        // === DISPLAY DATA TO STDERR === //
+        arguments.displayData(true);
 
-        //TODO show game state through System.err
+        // === PREPARE PLAYER LOGIC === //
+        PlayerLogic pl = new PlayerLogic(arguments.getGrid());
+        Action action = new Action();
+        action.setMove(pl.getRandomMove());
+        action.displayJSON(true); // prints it to standard error for debug/user view
+        action.displayJSON(false); // sends through standard out to the driver
 
-        //TODO pick appropriate move
-
-        //TODO send move to driver through System.out
+        // === CLOSE PORTS === //
+        System.out.flush();
+        try
+        {
+            System.in.close();
+            System.out.close();
+            System.err.close();
+        }
+        catch (java.io.IOException ioe)
+        {
+            System.out.close();
+            System.err.close();
+        }
     }
 }

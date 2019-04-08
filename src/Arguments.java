@@ -43,7 +43,7 @@ public class Arguments
 
     public void setGridFromJSON(String json)
     {
-        String arr = json.replaceAll("[[\\{\\}\\s]]", "");
+        String arr = json.replaceAll("[\\{\\}\\s]]", "");
         arr = arr.replaceAll("^(.*):", "");
         arr = arr.replaceAll( "\\],", ";");
         arr = arr.replaceAll( "[\\[\\]]", "");
@@ -62,6 +62,26 @@ public class Arguments
         }
     }
 
+    public void displayData(boolean stdErr)
+    {
+        if(stdErr)
+        {
+            System.err.println("Player: " + this.player);
+            System.err.println("Width: " + this.width);
+            System.err.println("Height: " + this.height);
+            System.err.println("Grid:");
+            displayGrid(stdErr);
+        }
+        else
+        {
+            System.out.println("Player: " + this.player);
+            System.out.println("Width: " + this.width);
+            System.out.println("Height: " + this.height);
+            System.out.println("Grid:");
+            displayGrid(stdErr);
+        }
+    }
+
     public void displayGrid(boolean stdErr)
     {
         if (stdErr)
@@ -70,7 +90,7 @@ public class Arguments
             {
                 for(int j = 0; j < width; ++j)
                 {
-                    System.out.print(" " + this.grid[j][i] + " ");
+                    System.err.print(" " + this.grid[j][i] + " ");
                 }
                 System.err.printf("%n");
             }
@@ -81,7 +101,7 @@ public class Arguments
             {
                 for(int j = 0; j < width; ++j)
                 {
-                    System.err.print(" " + this.grid[j][i] + " ");
+                    System.out.print(" " + this.grid[j][i] + " ");
                 }
                 System.err.printf("%n");
             }
