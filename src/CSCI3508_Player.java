@@ -1,6 +1,7 @@
 // TODO document code
 // TODO add javadoc to each class method
 // TODO test this program against a given driver
+// TODO [OPTIONAL] add "smarter" move selection
 
 import java.util.Scanner;
 
