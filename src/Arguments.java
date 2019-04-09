@@ -43,7 +43,7 @@ public class Arguments
 
     public void setGridFromJSON(String json)
     {
-        String arr = json.replaceAll("[\\{\\}\\s]]", "");
+        String arr = json.replaceAll("[\\{\\}\\s]", "");
         arr = arr.replaceAll("^(.*):", "");
         arr = arr.replaceAll( "\\],", ";");
         arr = arr.replaceAll( "[\\[\\]]", "");
@@ -62,23 +62,19 @@ public class Arguments
         }
     }
 
-    public void displayData(boolean stdErr)
+    public void displayArgs(boolean stdErr)
     {
         if(stdErr)
         {
             System.err.println("Player: " + this.player);
             System.err.println("Width: " + this.width);
             System.err.println("Height: " + this.height);
-            System.err.println("Grid:");
-            displayGrid(stdErr);
         }
         else
         {
             System.out.println("Player: " + this.player);
             System.out.println("Width: " + this.width);
             System.out.println("Height: " + this.height);
-            System.out.println("Grid:");
-            displayGrid(stdErr);
         }
     }
 
@@ -86,6 +82,7 @@ public class Arguments
     {
         if (stdErr)
         {
+            System.err.println("Grid:"); //only do this line for stderr since stdout gets sent to the driver
             for(int i = 0; i < height; ++i)
             {
                 for(int j = 0; j < width; ++j)

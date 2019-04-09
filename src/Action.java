@@ -11,7 +11,7 @@ public class Action
 
     public void displayJSON(boolean stdErr)
     {
-        String json = String.format("{move:%d}", this.move);
+        String json = String.format("{\"move\":%d}", this.move);
         if (stdErr)
         {
             System.err.println(json);

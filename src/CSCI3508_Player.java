@@ -14,18 +14,24 @@ public class CSCI3508_Player
 
         // === GATHER CL ARGUMENTS === //
         Arguments arguments = new Arguments(args);
-        String gridJSON = scanner.nextLine();
-        arguments.setGridFromJSON(gridJSON);
+        
+        // === DISPLAY ARGS TO STDERR === //
+        arguments.displayArgs(true);
+        
+        // === MOVE LOOP === //
+        while (scanner.hasNextLine())
+        {
+            // === GET CURRENT GRID === //
+            String gridJSON = scanner.nextLine();
+            arguments.setGridFromJSON(gridJSON);
 
-        // === DISPLAY DATA TO STDERR === //
-        arguments.displayData(true);
-
-        // === PREPARE PLAYER LOGIC === //
-        PlayerLogic pl = new PlayerLogic(arguments.getGrid());
-        Action action = new Action();
-        action.setMove(pl.getRandomMove());
-        action.displayJSON(true); // prints it to standard error for debug/user view
-        action.displayJSON(false); // sends through standard out to the driver
+            // === PREPARE PLAYER LOGIC === //
+            PlayerLogic pl = new PlayerLogic(arguments.getGrid());
+            Action action = new Action();
+            action.setMove(pl.getRandomMove());
+            action.displayJSON(true); // prints it to standard error for debug/user view
+            action.displayJSON(false); // sends through standard out to the driver
+        }
 
         // === CLOSE PORTS === //
         System.out.flush();
