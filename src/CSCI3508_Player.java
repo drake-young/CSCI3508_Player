@@ -34,7 +34,6 @@ public class CSCI3508_Player
         }
 
         // === CLOSE PORTS === //
-        System.out.flush();
         try
         {
             System.in.close();
