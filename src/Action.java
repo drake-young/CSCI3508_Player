@@ -23,6 +23,7 @@ public class Action
         else
         {
             System.out.println(json);
+            System.out.flush();
         }
     }
 }

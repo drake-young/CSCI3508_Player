@@ -77,8 +77,11 @@ public class Arguments
         else
         {
             System.out.println("Player: " + this.player);
+            System.out.flush();
             System.out.println("Width: " + this.width);
+            System.out.flush();
             System.out.println("Height: " + this.height);
+            System.out.flush();
         }
     }
 
@@ -105,8 +108,10 @@ public class Arguments
                 for(int j = 0; j < width; ++j)
                 {
                     System.out.print(" " + this.grid[j][i] + " ");
+                    System.out.flush();
                 }
-                System.err.printf("%n");
+                System.out.printf("%n");
+                System.out.flush();
             }
         }
     }
