@@ -28,7 +28,7 @@ public class CSCI3508_Player
             // === PREPARE PLAYER LOGIC === //
             PlayerLogic pl = new PlayerLogic(arguments.getGrid());
             Action action = new Action();
-            action.setMove(pl.getRandomMove());
+            action.setMove(pl.getRandomMove()); //could replace this later for better AI
             action.displayJSON(true); // prints it to standard error for debug/user view
             action.displayJSON(false); // sends through standard out to the driver
         }
