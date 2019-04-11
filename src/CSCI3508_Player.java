@@ -1,10 +1,22 @@
-// TODO document code
-// TODO add javadoc to each class method
-// TODO test this program against a given driver
 // TODO [OPTIONAL] add "smarter" move selection
 
-import java.util.Scanner;
+// === IMPORTS === //
+import java.util.Scanner; // imported for using scanner to read from System.in
 
+/**
+ * Main Class
+ *
+ * <p>
+ *     Retrieves the arguments, initializes the appropriate supporting classes,
+ *     uses the PlayerLogic class to determine a move, sends the Action object's JSON
+ *     to the Driver, then closes all ports (StdIn, StdOut, and StdErr).
+ * </p>
+ *
+ * @author Adrian Dagher
+ * @author Julian Gardner
+ * @author Tobby Lie
+ * @author Drake Young
+ */
 public class CSCI3508_Player
 {
     public static void main(String[] args)
